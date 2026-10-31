@@ -1,0 +1,180 @@
+/* Inline metric text owns the baseline; only the decorative glyph window clips. */
+.changing-value.animated-digits {
+  display: inline-block;
+  overflow: visible;
+  vertical-align: baseline;
+  font: inherit;
+  font-variant-numeric: tabular-nums;
+  line-height: inherit;
+}
+.animated-digits > .digit-cells {
+  display: inline-flex;
+  align-items: baseline;
+  vertical-align: baseline;
+  white-space: pre;
+  line-height: inherit;
+}
+.animated-digits .digit-cell {
+  display: inline-block;
+  position: relative;
+  width: 1ch;
+  overflow: visible;
+  vertical-align: baseline;
+  line-height: inherit;
+  letter-spacing: 0;
+  text-align: center;
+}
+.animated-digits .digit-cell > .digit-metric {
+  display: inline;
+  visibility: hidden;
+  font: inherit;
+}
+.animated-digits .digit-cell > .digit-window {
+  display: block;
+  position: absolute;
+  inset: 0;
+  overflow: clip;
+  line-height: inherit;
+}
+.digit-window > span {
+  display: block;
+  position: absolute;
+  inset: 0;
+  font: inherit;
+  line-height: inherit;
+}
+.animated-digits .digit-literal {
+  display: inline;
+  line-height: inherit;
+}
+.digit-window .digit-outgoing {
+  opacity: 0;
+  pointer-events: none;
+}
+.festival-countdown.festival-countdown-full {
+  display: block;
+  margin-block: 30px;
+  font-variant-numeric: tabular-nums;
+}
+.countdown-schedule {
+  display: grid;
+  gap: 4px;
+  margin-bottom: 20px;
+}
+.countdown-schedule > span {
+  color: var(--muted);
+  font-size: 14px;
+}
+.countdown-schedule time {
+  font-size: clamp(16px, 2vw, 20px);
+}
+.countdown-units {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(12px, 3vw, 32px);
+  max-width: 680px;
+}
+.countdown-unit {
+  min-width: 0;
+}
+.festival-countdown-full .countdown-unit strong {
+  display: block;
+  font-size: clamp(36px, 7vw, 88px);
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: 0;
+  color: var(--accent);
+}
+.countdown-unit > span {
+  display: block;
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: clamp(12px, 1.7vw, 16px);
+}
+.countdown-placeholder {
+  display: inline-block;
+  width: 2ch;
+  text-align: center;
+}
+.countdown-complete {
+  margin: 18px 0 0;
+}
+.velocity-strip-continuous .velocity-row {
+  overflow: clip;
+}
+.animated-dropdown {
+  position: relative;
+}
+.animated-dropdown > .dropdown-native {
+  position: absolute;
+  inset: 0 auto auto 0;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  border: 0;
+  opacity: 0;
+  pointer-events: none;
+}
+.animated-dropdown[data-invalid="true"] > .dropdown-trigger {
+  border-color: var(--error);
+}
+.dropdown-options [aria-disabled="true"] {
+  opacity: 0.55;
+  cursor: default;
+}
+.smooth-text {
+  display: inline-block;
+}
+.mask-reveal-text,
+.mask-reveal-line {
+  display: block;
+}
+.mask-reveal-line {
+  overflow: clip;
+  padding-bottom: 0.12em;
+  margin-bottom: -0.12em;
+}
+.mask-reveal-line-text,
+.focus-resolve-text {
+  display: inline-block;
+}
+.text-entrance-piece,
+.fade-through-piece,
+.horizontal-text-piece {
+  display: inline-block;
+}
+.horizontal-text-reveal {
+  display: block;
+  overflow: clip;
+  padding-block: 0.18em;
+  margin-block: -0.18em;
+}
+.text-entrance-space {
+  white-space: pre-wrap;
+}
+.control-tooltip.control-tooltip-portal {
+  position: fixed;
+  inset: auto;
+  animation: none;
+  pointer-events: auto;
+  z-index: 160;
+}
+.control-tooltip.control-tooltip-portal::after {
+  left: var(--tooltip-arrow, 50%);
+}
+@media (prefers-reduced-motion: reduce) {
+  .velocity-strip-continuous .velocity-track {
+    display: block;
+    width: auto;
+    transform: none !important;
+    font-size: clamp(24px, 4vw, 40px);
+  }
+  .velocity-strip-continuous .velocity-track > span {
+    display: block;
+    padding: 0;
+    white-space: normal;
+  }
+  .velocity-strip-continuous .velocity-track > span:not(:first-child) {
+    display: none;
+  }
+}

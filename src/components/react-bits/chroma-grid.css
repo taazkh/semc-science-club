@@ -1,0 +1,169 @@
+/* React Bits ChromaGrid radial masks, adapted to photo-only overlays. */
+.chroma-grid {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  align-items: start;
+  width: 100%;
+  gap: 24px;
+  margin: 0 auto;
+  --x: 50%;
+  --y: 50%;
+  --r: 280px;
+}
+.chroma-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: var(--card-gradient);
+  --mouse-x: 50%;
+  --mouse-y: 50%;
+  --spotlight-color: rgb(255 255 255 / 0.12);
+}
+.chroma-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at var(--mouse-x) var(--mouse-y),
+    var(--spotlight-color),
+    transparent 70%
+  );
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 180ms ease;
+  z-index: 2;
+}
+.chroma-card:focus-within {
+  border-color: var(--card-border);
+}
+.chroma-img-wrapper {
+  position: relative;
+  z-index: 1;
+  padding: 10px;
+}
+.chroma-photo {
+  position: relative;
+  aspect-ratio: 1;
+  overflow: hidden;
+  border-radius: 10px;
+  --portrait-x: 0px;
+  --portrait-y: 0px;
+}
+.chroma-photo > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+.chroma-info {
+  position: relative;
+  z-index: 3;
+  padding: 14px 20px 20px;
+  color: var(--text);
+}
+.chroma-overlay,
+.chroma-fade {
+  display: none;
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  backdrop-filter: grayscale(1) brightness(0.78);
+  -webkit-backdrop-filter: grayscale(1) brightness(0.78);
+  background: rgb(0 0 0 / 0.001);
+}
+.chroma-overlay {
+  z-index: 1;
+  mask-image: radial-gradient(
+    circle var(--r) at calc(var(--x) - var(--portrait-x))
+      calc(var(--y) - var(--portrait-y)),
+    transparent 0%,
+    transparent 15%,
+    rgb(0 0 0 / 0.1) 30%,
+    rgb(0 0 0 / 0.22) 45%,
+    rgb(0 0 0 / 0.35) 60%,
+    rgb(0 0 0 / 0.5) 75%,
+    rgb(0 0 0 / 0.68) 88%,
+    white 100%
+  );
+  -webkit-mask-image: radial-gradient(
+    circle var(--r) at calc(var(--x) - var(--portrait-x))
+      calc(var(--y) - var(--portrait-y)),
+    transparent 0%,
+    transparent 15%,
+    rgb(0 0 0 / 0.1) 30%,
+    rgb(0 0 0 / 0.22) 45%,
+    rgb(0 0 0 / 0.35) 60%,
+    rgb(0 0 0 / 0.5) 75%,
+    rgb(0 0 0 / 0.68) 88%,
+    white 100%
+  );
+}
+.chroma-fade {
+  z-index: 2;
+  opacity: 1;
+  mask-image: radial-gradient(
+    circle var(--r) at calc(var(--x) - var(--portrait-x))
+      calc(var(--y) - var(--portrait-y)),
+    white 0%,
+    white 15%,
+    rgb(255 255 255 / 0.9) 30%,
+    rgb(255 255 255 / 0.78) 45%,
+    rgb(255 255 255 / 0.65) 60%,
+    rgb(255 255 255 / 0.5) 75%,
+    rgb(255 255 255 / 0.32) 88%,
+    transparent 100%
+  );
+  -webkit-mask-image: radial-gradient(
+    circle var(--r) at calc(var(--x) - var(--portrait-x))
+      calc(var(--y) - var(--portrait-y)),
+    white 0%,
+    white 15%,
+    rgb(255 255 255 / 0.9) 30%,
+    rgb(255 255 255 / 0.78) 45%,
+    rgb(255 255 255 / 0.65) 60%,
+    rgb(255 255 255 / 0.5) 75%,
+    rgb(255 255 255 / 0.32) 88%,
+    transparent 100%
+  );
+}
+.chroma-card:focus-within .chroma-overlay,
+.chroma-card:focus-within .chroma-fade,
+.chroma-photo:has([data-placeholder="true"]) .chroma-overlay,
+.chroma-photo:has([data-placeholder="true"]) .chroma-fade {
+  display: none !important;
+}
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .chroma-grid[data-interactive="true"] .chroma-overlay,
+  .chroma-grid[data-interactive="true"] .chroma-fade {
+    display: block;
+  }
+  .chroma-grid[data-interactive="true"] .chroma-card:hover {
+    border-color: var(--card-border);
+  }
+  .chroma-grid[data-interactive="true"] .chroma-card:hover::before {
+    opacity: 1;
+  }
+}
+@media (min-width: 600px) {
+  .chroma-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (min-width: 1024px) {
+  .chroma-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 28px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .chroma-card::before {
+    display: none;
+    transition: none;
+  }
+}

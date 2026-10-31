@@ -1,0 +1,49 @@
+.summary-expansion {
+  position: relative;
+  overflow: hidden;
+}
+.summary-natural-list {
+  position: relative;
+  display: flow-root;
+}
+.choice-row > span.spring-check-native {
+  position: relative;
+  flex: 0 0 22px;
+  width: 22px;
+  min-width: 22px;
+  min-height: 44px;
+}
+.choice-row > .spring-check-native > input {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  opacity: 0;
+  cursor: inherit;
+}
+.spring-check-native .spring-check__press {
+  pointer-events: none;
+}
+.spring-check-native .spring-check__ring,
+.spring-check.spring-check-native:hover .spring-check__ring {
+  opacity: 1;
+  box-shadow: inset 0 0 0 var(--sc-ring) var(--control-line);
+}
+.spring-check-native:has(input:checked) .spring-check__ring {
+  opacity: 0;
+}
+.spring-check-native:has(input:focus-visible) .spring-check__press {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+}
+.spring-check-native[data-disabled] {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+@media (prefers-reduced-motion: reduce) {
+  .spring-check-native .spring-check__press,
+  .spring-check-native .spring-check__ring {
+    transition: none;
+  }
+}

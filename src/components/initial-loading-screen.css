@@ -1,0 +1,42 @@
+.initial-loading-screen {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 300;
+  place-items: center;
+  padding: 24px;
+  background: var(--bg);
+  color: var(--text);
+  touch-action: none;
+  transition: opacity 180ms ease-out;
+}
+html[data-initial-loading] .initial-loading-screen {
+  display: grid;
+}
+html[data-initial-loading="leaving"] .initial-loading-screen {
+  opacity: 0;
+  pointer-events: none;
+}
+html[data-initial-loading="true"] body > :is(header, main, footer, .skip-link) {
+  visibility: hidden;
+}
+.initial-loading-copy {
+  display: grid;
+  justify-items: center;
+  text-align: center;
+}
+.initial-loading-copy > strong {
+  font-size: 32px;
+  font-weight: 500;
+  letter-spacing: -0.03em;
+}
+.initial-loading-copy > span {
+  margin-top: 4px;
+  color: var(--muted);
+}
+.initial-loading-copy .status-mark {
+  margin-top: 32px;
+}
+@media (prefers-reduced-motion: reduce) {
+  .initial-loading-screen { transition: none; }
+}

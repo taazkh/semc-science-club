@@ -1,0 +1,100 @@
+.home-hero .hero-main {
+  display: grid;
+  grid-template-rows: auto minmax(240px, 1fr) auto;
+  align-items: stretch;
+  min-height: calc(100svh - 150px);
+}
+.home-hero .hero-orbits {
+  height: auto;
+  min-height: 240px;
+  margin-block: 12px 24px;
+}
+.home-hero .orbit-fallback {
+  translate: 0 4svh;
+}
+.home-hero .club-introduction {
+  padding: 20px 24px;
+  margin: 0;
+}
+.home-hero .club-introduction p {
+  max-width: 68ch;
+}
+.club-introduction > .liquid-glass-surface {
+  --glass-tint: rgb(15 23 38 / 0.56);
+}
+.participation-section[data-material="glass"],
+.registration-guide[data-material="glass"] {
+  padding: clamp(28px, 4vw, 56px);
+  border: 0;
+}
+.participation-section[data-material="glass"] {
+  margin-block: var(--section-space);
+}
+.participation-section > .liquid-glass-surface,
+.registration-guide > .liquid-glass-surface {
+  --glass-tint: rgb(14 22 37 / 0.68);
+  --glass-refraction-blur: 2px;
+}
+.participation-section .participation-grid {
+  gap: clamp(32px, 6vw, 88px);
+}
+.programme-section .velocity-strip-continuous {
+  margin-block: 48px 40px;
+  padding-block: 36px;
+}
+.programme-section .velocity-track {
+  font-size: clamp(26px, 3.2vw, 44px);
+  line-height: 1.45;
+  letter-spacing: -0.02em;
+}
+.programme-section .velocity-track > span {
+  padding-right: 1em;
+}
+:where(a[href], button, summary, [role="tab"], [role="menuitem"]) {
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.24em;
+}
+:where(
+  a[href],
+  button:not(:disabled),
+  summary,
+  [role="tab"],
+  [role="menuitem"]
+):focus-visible {
+  text-decoration-line: underline;
+}
+@media (hover: hover) {
+  :where(
+    a[href],
+    button:not(:disabled),
+    summary,
+    [role="tab"],
+    [role="menuitem"]
+  ):hover {
+    text-decoration-line: underline;
+  }
+  .text-link:hover {
+    text-decoration-line: none;
+  }
+}
+.text-link:focus-visible {
+  text-decoration-line: none;
+}
+@media (max-width: 767px) {
+  .home-hero .hero-main {
+    min-height: calc(100svh - 140px);
+  }
+  .home-hero .club-introduction {
+    padding: 20px;
+  }
+  .programme-section .velocity-strip-continuous {
+    margin-block: 40px 32px;
+    padding-block: 32px;
+  }
+}
+@media (prefers-reduced-transparency: reduce), (prefers-contrast: more) {
+  :is(.club-introduction, .participation-section, .registration-guide)
+    > .liquid-glass-surface {
+    --glass-tint: var(--surface);
+  }
+}

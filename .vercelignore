@@ -1,0 +1,25 @@
+# Deploy application source and public assets, never credentials or local test data.
+.env*
+.data/
+.git/
+.impeccable/
+.next/
+.pnpm-store/
+.venv/
+.vercel/
+handoff-packages/
+node_modules/
+test-results/
+playwright-report/
+tests/
+scripts/
+supabase/
+assets/
+*.md
+*.tsbuildinfo
+
+design-preview/
+design-references/
+.references/
+public/review/
+public/images/members/quote-review-2026-10-07/

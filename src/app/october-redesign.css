@@ -1,0 +1,295 @@
+/* October 3: restored Home composition, with an event-led festival masthead. */
+.home-landing-type {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 28px;
+  align-items: center;
+  padding: 6px 0 10px;
+  background: var(--bg);
+}
+.home-landing-type h1 {
+  font-size: clamp(32px, 3.6vw, 55px);
+  line-height: 1.12;
+  font-weight: 400;
+  letter-spacing: -0.035em;
+  margin: 0;
+}
+.home-landing-type .mask-reveal-text .mask-reveal-line {
+  display: inline;
+}
+.home-landing-type .mask-reveal-line + .mask-reveal-line::before {
+  content: " ";
+}
+.home-landing-type .mask-reveal-line:last-child {
+  color: var(--accent);
+}
+.home-hero .festival-invitation {
+  padding: 28px;
+  border: 0;
+  border-radius: 16px;
+}
+.festival-invitation > .liquid-glass-surface {
+  --glass-tint: rgb(20 30 46 / 0.35);
+}
+.home-hero .festival-invitation .invitation-title strong {
+  font-size: 25px;
+  font-weight: 450;
+}
+.invitation-date {
+  display: block;
+  font-size: 14px;
+  margin-top: 8px;
+  color: var(--muted);
+}
+.home-hero .festival-invitation p {
+  padding: 0;
+  background: transparent;
+  font-size: 15px;
+  max-width: 350px;
+}
+.home-countdown {
+  margin-top: 46px;
+  display: grid;
+  grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
+  column-gap: 60px;
+  align-items: end;
+}
+.home-countdown .festival-countdown.festival-countdown-full {
+  margin: 0;
+  grid-row: span 2;
+}
+.home-countdown > p {
+  font-size: clamp(27px, 3.2vw, 44px);
+  line-height: 1.12;
+  letter-spacing: -0.025em;
+  margin: 0 0 18px;
+  max-width: 12ch;
+}
+.home-countdown > span {
+  color: var(--muted);
+  line-height: 1.6;
+  max-width: 36ch;
+}
+.festival-page-hero {
+  padding-top: 8px;
+}
+.festival-masthead {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(36px, 6vw, 88px);
+  align-items: center;
+  padding: 30px 0 38px;
+}
+.festival-masthead h1 {
+  font-size: clamp(58px, 7.1vw, 100px);
+  font-weight: 400;
+  line-height: 1.03;
+  letter-spacing: -0.035em;
+  margin: 0;
+}
+.festival-masthead h1 .mask-reveal-line:last-child {
+  color: var(--accent);
+}
+.festival-opening-line {
+  margin: 20px 0 26px;
+  font-size: clamp(20px, 2.1vw, 28px);
+}
+.festival-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.festival-registration-link {
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+  font-size: 16px;
+  min-height: 44px;
+  text-decoration: underline;
+  text-underline-offset: 5px;
+}
+.festival-countdown-surface {
+  padding: clamp(24px, 3vw, 42px);
+}
+.festival-countdown-surface > .liquid-glass-surface {
+  --glass-tint: rgb(20 30 46 / 0.42);
+}
+.festival-countdown-surface .festival-countdown.festival-countdown-full {
+  margin: 0;
+}
+.festival-countdown-surface .countdown-units {
+  gap: 14px;
+}
+.festival-countdown-surface .festival-countdown-full .countdown-unit strong {
+  font-size: clamp(34px, 4.3vw, 62px);
+}
+.festival-countdown-surface > p {
+  font-size: 18px;
+  line-height: 1.5;
+  max-width: 30ch;
+  padding-top: 24px;
+  margin: 28px 0 0;
+  border-top: 1px solid var(--line);
+}
+.festival-orbital-background .hero-orbits {
+  height: 0;
+  margin: 0;
+}
+.festival-orbital-background .orbit-fallback {
+  position: fixed;
+  inset: 14% 7%;
+  z-index: -1;
+}
+html[data-motion="enhanced"]
+  :is(a, button, summary):focus-visible
+  [data-reveal="pending"] {
+  opacity: 1;
+}
+.festival-facts {
+  padding-block: 25px;
+  margin-top: 0;
+}
+.festival-statement {
+  padding-top: 60px;
+  max-width: 1000px;
+  font-size: clamp(30px, 3.5vw, 50px);
+  line-height: 1.24;
+  letter-spacing: -0.025em;
+}
+.emboss-marker {
+  padding: 9px 14px;
+  border-radius: 8px;
+  background: var(--surface);
+  box-shadow:
+    inset 0 1px 0 rgb(235 244 255 / 0.16),
+    inset 0 -2px 3px rgb(0 0 0 / 0.3),
+    0 4px 12px rgb(0 0 0 / 0.14);
+}
+.preview-facts dd {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  column-gap: 0.25em;
+  line-height: 1.4;
+}
+.preview-facts dd > small {
+  display: inline;
+  margin: 0;
+}
+.summary-total {
+  align-items: baseline;
+  gap: 12px;
+}
+.summary-total > strong {
+  white-space: nowrap;
+  line-height: 1.25;
+}
+.programme-result {
+  display: flex;
+  gap: 0.3em;
+  align-items: baseline;
+}
+.event-preview > .liquid-glass-surface {
+  --glass-tint: rgb(18 28 45 / 0.43);
+}
+@media (max-width: 1023px) {
+  .festival-masthead {
+    gap: 32px;
+  }
+  .festival-masthead h1 {
+    font-size: clamp(54px, 7.5vw, 77px);
+  }
+  .festival-countdown-surface {
+    padding: 24px;
+  }
+  .festival-countdown-surface .festival-countdown-full .countdown-unit strong {
+    font-size: clamp(30px, 4.2vw, 44px);
+  }
+  .home-countdown {
+    column-gap: 28px;
+  }
+}
+@media (max-width: 767px) {
+  .home-landing-type {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .home-landing-type h1 {
+    font-size: clamp(30px, 7.5vw, 48px);
+  }
+}
+@media (max-width: 600px) {
+  .home-hero .festival-invitation {
+    padding: 24px;
+  }
+  .home-hero .festival-invitation .invitation-title strong {
+    font-size: 28px;
+  }
+  .home-hero .festival-invitation p {
+    max-width: 100%;
+  }
+}
+@media (max-width: 767px) {
+  .home-countdown {
+    grid-template-columns: 1fr;
+    gap: 26px;
+    align-items: start;
+  }
+  .home-countdown > p {
+    max-width: 24ch;
+    margin: 0;
+  }
+  .festival-masthead {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    padding-top: 22px;
+  }
+  .festival-masthead h1 {
+    font-size: clamp(56px, 13.5vw, 86px);
+  }
+  .festival-masthead h1 .mask-reveal-line {
+    display: inline;
+  }
+  .festival-masthead h1 .mask-reveal-line + .mask-reveal-line::before {
+    content: " ";
+  }
+  .festival-opening-line {
+    font-size: 22px;
+    margin-block: 18px 22px;
+  }
+  .festival-actions {
+    gap: 10px 18px;
+  }
+  .festival-countdown-surface .festival-countdown-full .countdown-unit strong {
+    font-size: clamp(34px, 8vw, 52px);
+  }
+  .festival-countdown-surface > p {
+    font-size: 17px;
+    margin-top: 24px;
+    padding-top: 20px;
+  }
+  .festival-facts {
+    grid-template-columns: 1fr;
+    padding-block: 22px;
+    gap: 20px;
+  }
+  .festival-statement {
+    padding-top: 44px;
+  }
+  .festival-page-hero .hero-affiliation {
+    flex-direction: column;
+    align-items: start;
+    gap: 12px;
+  }
+  .emboss-marker {
+    font-size: 14px;
+  }
+}
+@media (prefers-reduced-transparency: reduce) {
+  .festival-invitation > .liquid-glass-surface,
+  .festival-countdown-surface > .liquid-glass-surface,
+  .event-preview > .liquid-glass-surface {
+    --glass-tint: var(--surface);
+  }
+}

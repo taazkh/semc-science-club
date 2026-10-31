@@ -1,0 +1,49 @@
+.stroke-text {
+  position: relative;
+  display: block;
+  width: max-content;
+  max-width: 100%;
+  line-height: inherit;
+}
+
+.stroke-text--hover {
+  cursor: pointer;
+}
+
+.stroke-text__svg {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  opacity: 0;
+}
+
+.stroke-text__fallback {
+  display: block;
+}
+
+.stroke-text__baseline {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  vertical-align: baseline;
+}
+
+.stroke-text[data-ready="true"][data-complete="false"] .stroke-text__fallback {
+  visibility: hidden;
+}
+
+.stroke-text[data-ready="true"][data-complete="false"] .stroke-text__svg {
+  opacity: 1;
+}
+
+.festival-stroke-line:last-child {
+  color: var(--accent);
+}
+
+.stroke-text__stroke,
+.stroke-text__fill {
+  user-select: none;
+}

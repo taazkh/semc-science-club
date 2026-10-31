@@ -1,0 +1,26 @@
+.glass-spotlight-layer {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background: radial-gradient(
+    circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    color-mix(in srgb, var(--accent) 8%, transparent),
+    transparent 80%
+  );
+  opacity: 0;
+  transition: opacity 180ms ease;
+}
+.glass-spotlight-layer[data-active="true"] {
+  opacity: 0.6;
+}
+@media (prefers-reduced-motion: reduce) {
+  .glass-spotlight-layer {
+    transition: none;
+  }
+}
+@media (prefers-reduced-transparency: reduce), (prefers-contrast: more) {
+  .glass-spotlight-layer {
+    display: none;
+  }
+}
