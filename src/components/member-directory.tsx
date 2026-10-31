@@ -88,4 +88,3 @@ function MemberCaption({ member }: { member: ContentItem }) {
     </div>
   );
 }
-
